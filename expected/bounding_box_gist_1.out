@@ -4,7 +4,7 @@ INSERT INTO bbox_ellipse VALUES ('<{10d, 0.1d}, (0d,0d), 0d>');
 SELECT spoint '(5d, 0d)' @ sellipse '<{10d, 0.1d}, (0d,0d), 0d>' AS inside;
  inside 
 --------
- t
+ f
 (1 row)
 
 SELECT COUNT(*) FROM bbox_ellipse WHERE spoint '(5d, 0d)' @ e;
