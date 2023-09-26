@@ -41,14 +41,14 @@ jobs:
     - name: Build pgSphere
       run: ${MAKE_CMD} PROFILE="-Werror -Wall" USE_HEALPIX=${{ matrix.use_healpix }}
 
+    - name: make test
+      run: pg_virtualenv ${MAKE_CMD} USE_HEALPIX=${{ matrix.use_healpix }} test
+
     - name: Install pgSphere
       run: sudo ${MAKE_CMD} USE_HEALPIX=${{ matrix.use_healpix }} install
 
     - name: make installcheck
       run: pg_virtualenv ${MAKE_CMD} USE_HEALPIX=${{ matrix.use_healpix }} installcheck
-
-    - name: make test
-      run: pg_virtualenv ${MAKE_CMD} USE_HEALPIX=${{ matrix.use_healpix }} test
 
     - name: make crushtest
       run: pg_virtualenv ${MAKE_CMD} USE_HEALPIX=${{ matrix.use_healpix }} crushtest
